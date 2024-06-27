@@ -1,1 +1,0 @@
-# Dek-D-Frontend-Challenge-2024
