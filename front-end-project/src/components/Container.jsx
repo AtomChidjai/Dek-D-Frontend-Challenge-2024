@@ -1,8 +1,6 @@
 import React from 'react'
 import Card from './Card'
 import { useState } from 'react'
-import { IoAddCircleOutline } from "react-icons/io5";
-import { IoIosRemoveCircleOutline } from "react-icons/io";
 
 const Container = () => {
     const [cardCount, setCardCount] = useState(7);
@@ -19,10 +17,12 @@ const Container = () => {
 
     return (
         <>
-            <div className='w-[1100px] flex bg-red-100 px-2'>
+            <div className='w-[1100px] flex px-2 justify-between items-center'>
                 <span className='text-[12px] text-[#878787]'>จํานวนทั้งหมด {cardCount} รายการ</span>
-                <button className='text-[50px]' onClick={addCard}><IoAddCircleOutline/></button>
-                <button className='text-[50px]' onClick={removeCard}><IoIosRemoveCircleOutline/></button>
+                <div className='flex items-center'>
+                    <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px]' onClick={addCard}>เพิ่ม</button>
+                    <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3' onClick={removeCard}>เเก้ไข</button>
+                </div>
             </div>
             <div className='w-[1100px] flex flex-wrap'>
             {[...Array(cardCount)].map((_, index) => (
