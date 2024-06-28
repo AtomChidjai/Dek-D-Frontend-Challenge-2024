@@ -19,9 +19,12 @@ const Container = () => {
 
     return (
         <>
-            <button className='text-[50px]' onClick={addCard}><IoAddCircleOutline/></button>
-            <button className='text-[50px]' onClick={removeCard}><IoIosRemoveCircleOutline/></button>
-            <div className='w-[1050px] flex flex-wrap'>
+            <div className='w-[1100px] flex bg-red-100 px-2'>
+                <span className='text-[12px] text-[#878787]'>จํานวนทั้งหมด {cardCount} รายการ</span>
+                <button className='text-[50px]' onClick={addCard}><IoAddCircleOutline/></button>
+                <button className='text-[50px]' onClick={removeCard}><IoIosRemoveCircleOutline/></button>
+            </div>
+            <div className='w-[1100px] flex flex-wrap'>
             {[...Array(cardCount)].map((_, index) => (
                 <Card key={index + 1} number={index + 1} />
             ))}
