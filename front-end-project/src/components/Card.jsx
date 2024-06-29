@@ -2,10 +2,10 @@ import React from 'react'
 import { IoMdBookmark } from "react-icons/io";
 import { IoList } from "react-icons/io5";
 
-const Card = ({number}) => {
+const Card = ({ number, isSelected, onSelect }) => {
   return (
     <>
-        <div className='w-[350px] h-auto flex flex-row rounded-lg mx-2 my-3'>
+        <div className={`w-[350px] h-auto flex flex-row rounded-lg mx-2 my-3 ${isSelected ? 'border-2 border-blue-500' : ''}`} onClick={onSelect}>
             <img src="https://placehold.co/100x150"  className='rounded-lg'/>
             <div className='flex flex-col justify-between ml-[5px]'>
                 <div className=''>
