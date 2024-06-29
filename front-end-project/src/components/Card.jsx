@@ -9,7 +9,7 @@ const Card = ({ number, isSelected, onSelect, isToggle }) => {
         <img src="https://placehold.co/100x150" className='rounded-lg' />
         <div className='flex flex-col justify-between ml-[5px]'>
           <div>
-            <p className='font-semibold text-[18px]'>เป็นอนุฯสุขใจยิ่ง ชื่อยาวไปๆ <br />&lt;&nbsp;&nbsp;&nbsp;&nbsp;&gt;...</p>
+            <p className={`font-semibold text-[18px] hover:cursor-pointer ${!isToggle && 'transition ease-in-out delay-100 hover:text-[#F37A01] duration-300'}`}>เป็นอนุฯสุขใจยิ่ง ชื่อยาวไปๆ <br /> { isToggle ? <>&lt;我是姨娘&gt;...</> : <>&lt;&nbsp;&nbsp;&nbsp;&nbsp;&gt;...</>} </p>
             <p className='text-[12px] mt-[5px]'>G.lina</p>
           </div>
           <div className='text-[14px]'>
@@ -19,11 +19,11 @@ const Card = ({ number, isSelected, onSelect, isToggle }) => {
         </div>
         {isToggle && (
           <div className='absolute top-1 right-1 z-10'>
-            <input 
-                type="checkbox" 
-                className='w-[20px] h-[20px] rounded-full bg-white border border-[#F37A01] appearance-none checked:bg-[#F37A01] hover:cursor-pointer' 
-                onClick={onSelect}
-                checked={isSelected}
+            <input
+              type="checkbox"
+              className='w-[20px] h-[20px] rounded-full bg-white border border-[#F37A01] checked:bg-[#F37A01] checked:border-transparent hover:cursor-pointer hover:bg-[#F37A01] form-checkbox'
+              onClick={onSelect}
+              checked={isSelected}
             />
           </div>
         )}
