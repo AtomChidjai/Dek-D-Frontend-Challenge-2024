@@ -7,11 +7,11 @@ const Container = () => {
     const [selectedCards, setSelectedCards] = useState([]);
 
     const addCard = () => {
-        setCardCount(prevCount => prevCount + 1);
+        setCardCount(cardCount + 1);
     };
 
     const removeSelectedCards = () => {
-        const remainingCards = [...Array(cardCount)].map((_, i) => i).filter(i => !selectedCards.includes(i));
+        const remainingCards = [...Array(cardCount)].map((_, index) => index).filter(index => !selectedCards.includes(index));
         setCardCount(remainingCards.length);
         setSelectedCards([]);
     };
@@ -48,7 +48,13 @@ const Container = () => {
             </div>
             <div className='w-[1100px] flex flex-wrap'>
                 {[...Array(cardCount)].map((_, index) => (
-                    <Card key={index + 1} number={index + 1} isSelected={selectedCards.includes(index)} onSelect={() => toggleSelectCard(index)} />
+                    <Card 
+                        key={index + 1} 
+                        number={index + 1} 
+                        onSelect={() => toggleSelectCard(index)} 
+                        isToggle={selectToggle}
+                        isSelected={selectedCards.includes(index)}
+                    />
                 ))}
             </div>
         </div>
