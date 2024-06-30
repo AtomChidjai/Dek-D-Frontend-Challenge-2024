@@ -12,12 +12,15 @@ const Carousel = () => {
 
   return (
     <div className="relative w-full mx-auto overflow-x-hidden">
-      <div className="flex justify-center items-center relative space-x-2">
+      <div className="flex items-center justify-center space-x-2">
         {slides.map((slide, index) => (
-          <img 
-            key={index} 
-            src={slide}
-          />
+          <>
+            <img 
+              key={index} 
+              src={slide} 
+            />
+            <h1>{index}</h1>
+          </>
         ))}
       </div>
     </div>
