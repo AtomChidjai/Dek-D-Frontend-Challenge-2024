@@ -31,7 +31,7 @@ const Carousel = () => {
       <Slider {...settings}> 
         {slides.map((slide, index) => (
           <div key={index} className="px-2">
-            <img src={slide} className="w-full" style={{ width: '700px', height: '373px' }} />
+            <img src={slide} className="w-full hover:cursor-pointer" style={{ width: '700px', height: '373px' }} />
           </div>
         ))}
       </Slider>

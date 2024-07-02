@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Card from './Card';
 import { IoTrash } from "react-icons/io5";
+import Modal from './Modal';
 
 const Container = () => {
     const [cardCount, setCardCount] = useState(7);
@@ -36,31 +37,36 @@ const Container = () => {
     };
 
     return (
-        <div className='w-full flex flex-col items-center'>
-            <div className='w-[1100px] flex px-2 justify-between items-center'>
-                <span className='text-[12px] text-[#878787]'>จํานวนทั้งหมด {cardCount} รายการ</span>
-                <div className='flex items-center'>
-                    {!selectToggle && 
-                        <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] text-[#636363] transition ease-in-out delay-50 hover:bg-green-100 duration-300' onClick={addCard}>เพิ่ม</button>
-                    }
-                    {selectToggle && <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 text-[#636363] transition ease-in-out delay-50 hover:bg-red-100 duration-300' onClick={toggleSelectionMode}>ยกเลิก</button>}
-                    {selectToggle ? 
-                        <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 flex text-[#636363] transition ease-in-out delay-50 hover:bg-red-100 duration-300' onClick={removeSelectedCards}><IoTrash className='text-[15px] mr-[5px]'/> {selectedCards.length} รายการ</button> : 
-                        <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 text-[#636363] transition ease-in-out delay-50 hover:bg-orange-100 duration-300' onClick={toggleSelectionMode}>เเก้ไข</button>}
+        <>
+            <Modal/>
+            <div className='w-full flex flex-col items-center'>
+                <div className='w-[1100px] flex px-2 justify-between items-center'>
+                    <span className='text-[12px] text-[#878787]'>จํานวนทั้งหมด {cardCount} รายการ</span>
+                    <div className='flex items-center'>
+                        {!selectToggle && 
+                            <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] text-[#636363] transition ease-in-out delay-50 hover:bg-green-100 duration-300' onClick={addCard}>เพิ่ม</button>
+                        }
+                        {selectToggle && <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 text-[#636363] transition ease-in-out delay-50 hover:bg-red-100 duration-300' onClick={toggleSelectionMode}>ยกเลิก</button>}
+                        {selectToggle ? 
+                            <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 flex text-[#636363] transition ease-in-out delay-50 hover:bg-red-100 duration-300' onClick={removeSelectedCards}><IoTrash className='text-[15px] mr-[5px]'/> {selectedCards.length} รายการ</button> : 
+                            <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 text-[#636363] transition ease-in-out delay-50 hover:bg-orange-100 duration-300' onClick={toggleSelectionMode}>เเก้ไข</button>}
+                    </div>
                 </div>
+                <div className='w-[1100px] flex flex-wrap'>
+                    {[...Array(cardCount)].map((_, index) => (
+                        <Card 
+                            key={index + 1} 
+                            number={index + 1} 
+                            onSelect={() => toggleSelectCard(index)} 
+                            isToggle={selectToggle}
+                            isSelected={selectedCards.includes(index)}
+                        />
+                    ))}
+                </div>
+
+
             </div>
-            <div className='w-[1100px] flex flex-wrap'>
-                {[...Array(cardCount)].map((_, index) => (
-                    <Card 
-                        key={index + 1} 
-                        number={index + 1} 
-                        onSelect={() => toggleSelectCard(index)} 
-                        isToggle={selectToggle}
-                        isSelected={selectedCards.includes(index)}
-                    />
-                ))}
-            </div>
-        </div>
+        </>
     );
 };
 
