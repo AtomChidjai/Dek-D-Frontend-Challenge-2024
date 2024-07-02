@@ -1,4 +1,7 @@
 import React from 'react';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const Carousel = () => {
   const slides = [
@@ -10,20 +13,27 @@ const Carousel = () => {
     'https://placehold.co/700x373'
   ];
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    variableWidth: true,
+    adaptiveHeight: true
+  };
+
   return (
-    <div className="relative w-full mx-auto overflow-x-hidden">
-      <div className="flex items-center justify-center space-x-2">
+    <div className="slider-container relative w-full mx-auto h-[400px] overflow-x-hidden overflow-y-hidden">
+      <Slider {...settings}> 
         {slides.map((slide, index) => (
-          <>
-            <img 
-              key={index} 
-              src={slide} 
-            />
-            <h1>{index}</h1>
-          </>
+          <div key={index} className="px-2">
+            <img src={slide} className="w-full" style={{ width: '700px', height: '373px' }} />
+          </div>
         ))}
-      </div>
-    </div>
+      </Slider>
+   </div>
   );
 };
 
