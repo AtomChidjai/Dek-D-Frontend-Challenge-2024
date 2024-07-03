@@ -38,7 +38,7 @@ const Container = () => {
 
     return (
         <>
-            <Modal/>
+            {/* <Modal/> */}
             <div className='w-full flex flex-col items-center'>
                 <div className='w-[1100px] flex px-2 justify-between items-center'>
                     <span className='text-[12px] text-[#878787]'>จํานวนทั้งหมด {cardCount} รายการ</span>
