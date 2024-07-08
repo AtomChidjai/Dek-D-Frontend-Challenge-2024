@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
   return (
     <>
-        <div className='w-full flex justify-center mb-[10px] mt-[50px]'>
+        <div className='w-full flex justify-center mb-[10px] mt-[35px]'>
             <div className='w-[1100px]'>
                 <p className='ml-4 text-[24px] lg:text-[32px] text-[#333333] font-bold'>รายการที่คั่นไว้</p>
             </div>
