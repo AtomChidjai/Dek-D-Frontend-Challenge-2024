@@ -38,8 +38,8 @@ const Container = () => {
     return (
         <>
             <div className='w-full flex flex-col items-center'>
-                <div className='w-[1100px] flex px-2 justify-between items-center'>
-                    <span className='text-[12px] text-[#878787]'>จํานวนทั้งหมด {cardCount} รายการ</span>
+                <div className='w-full max-w-[1100px] flex px-2 justify-between items-center'>
+                    <span className='ml-[10px] text-[12px] text-[#878787]'>จํานวนทั้งหมด {cardCount} รายการ</span>
                     <div className='flex items-center'>
                         {!selectToggle && 
                             <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] text-[#636363] transition ease-in-out delay-50 hover:bg-green-100 duration-300' onClick={addCard}>เพิ่ม</button>
@@ -50,19 +50,18 @@ const Container = () => {
                             <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 text-[#636363] transition ease-in-out delay-50 hover:bg-orange-100 duration-300' onClick={toggleSelectionMode}>เเก้ไข</button>}
                     </div>
                 </div>
-                <div className='w-[1100px] flex flex-wrap'>
+                <div className='w-full max-w-[1100px] flex flex-wrap'>
                     {[...Array(cardCount)].map((_, index) => (
-                        <Card 
-                            key={index + 1} 
-                            number={index + 1} 
-                            onSelect={() => toggleSelectCard(index)} 
-                            isToggle={selectToggle}
-                            isSelected={selectedCards.includes(index)}
-                        />
+                        <div key={index} className='w-full sm:w-1/2 lg:w-1/3 p-2 flex justify-center'>
+                            <Card 
+                                number={index + 1} 
+                                onSelect={() => toggleSelectCard(index)} 
+                                isToggle={selectToggle}
+                                isSelected={selectedCards.includes(index)}
+                            />
+                        </div>
                     ))}
                 </div>
-
-
             </div>
         </>
     );

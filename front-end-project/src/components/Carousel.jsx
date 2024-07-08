@@ -23,15 +23,27 @@ const Carousel = () => {
     variableWidth: true,
     adaptiveHeight: true,
     centerMode: true,
-    centerPadding: '0px'
+    centerPadding: '0px',
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          dots : true,
+          variableWidth : false,
+          adaptiveHeight : true,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (
-    <div className="slider-container relative w-full mx-auto h-[400px] overflow-x-hidden overflow-y-hidden">
+    <div className="slider-container relative w-full mx-auto overflow-x-hidden overflow-y-hidden">
       <Slider {...settings}> 
         {slides.map((slide, index) => (
           <div key={index} className="px-2">
-            <img src={slide} className="w-full hover:cursor-pointer" style={{ width: '700px', height: '373px' }} />
+            <img src={slide} className="w-full hover:cursor-pointer" style={{ width: '100%', height: 'auto' }} />
           </div>
         ))}
       </Slider>
