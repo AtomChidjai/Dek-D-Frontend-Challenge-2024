@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Card from './Card';
 import { IoTrash } from "react-icons/io5";
-import Modal from './Modal';
 
 const Container = () => {
     const [cardCount, setCardCount] = useState(7);
@@ -38,7 +37,6 @@ const Container = () => {
 
     return (
         <>
-            {/* <Modal/> */}
             <div className='w-full flex flex-col items-center'>
                 <div className='w-[1100px] flex px-2 justify-between items-center'>
                     <span className='text-[12px] text-[#878787]'>จํานวนทั้งหมด {cardCount} รายการ</span>

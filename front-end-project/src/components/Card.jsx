@@ -1,11 +1,25 @@
 import React from 'react'
+import Modal from './Modal';
+import { useState } from 'react';
 import { IoMdBookmark } from "react-icons/io";
 import { IoList } from "react-icons/io5";
 
 const Card = ({ number, isSelected, onSelect, isToggle }) => {
+
+  const [modalToggle, setModalToggle] = useState(false);
+
+  const openHandler = () => {
+    setModalToggle(true);
+  };
+
+  const closeHandler = () => {
+    setModalToggle(false);
+  };
+
   return (
     <>
-      <div className='w-[350px] h-auto flex flex-row rounded-lg mx-2 my-3 relative'>
+      <Modal modalToggle={modalToggle} closeHandler={closeHandler} />
+      <div className='w-[350px] h-auto flex flex-row rounded-lg mx-2 my-3 relative' onClick={openHandler}>
         <img src="https://placehold.co/100x150" className='rounded-lg' />
         <div className='flex flex-col justify-between ml-[5px]'>
           <div>
