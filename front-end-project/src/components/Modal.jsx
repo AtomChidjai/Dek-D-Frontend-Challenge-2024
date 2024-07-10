@@ -3,11 +3,12 @@ import { IoMdClose } from "react-icons/io";
 import { IoMdBookmark } from "react-icons/io";
 import { IoList } from "react-icons/io5";
 
-const Modal = ({ modalToggle, closeHandler, number }) => {
+const Modal = ({ modalToggle, closeHandler, number, isToggle }) => {
 
   return (
     <>
-      {modalToggle &&
+    {!isToggle &&
+      <>{modalToggle &&
         <div>
           <div className='fixed inset-0 bg-black opacity-50 z-40'></div>
           <IoMdClose className='z-50 fixed text-[30px] sm:text-[50px] hover:cursor-pointer text-white right-[10px] sm:right-[20px] top-[10px] sm:top-[20px]' onClick={closeHandler} />
@@ -35,7 +36,8 @@ const Modal = ({ modalToggle, closeHandler, number }) => {
             </div>
           </div>
         </div>
-      }
+      }</>
+    }
     </>
   );
 }

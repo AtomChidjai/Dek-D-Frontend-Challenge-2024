@@ -18,7 +18,7 @@ const Card = ({ number, isSelected, onSelect, isToggle }) => {
 
   return (
     <>
-      <Modal modalToggle={modalToggle} closeHandler={closeHandler} number={number}/>
+      <Modal modalToggle={modalToggle} closeHandler={closeHandler} number={number} isToggle={isToggle}/>
       <div className='w-[350px] h-auto flex flex-row rounded-lg mx-2 my-3 relative' onClick={openHandler}>
         <img src="https://placehold.co/100x150" className='rounded-lg' />
         <div className='flex flex-col justify-between ml-[5px]'>
