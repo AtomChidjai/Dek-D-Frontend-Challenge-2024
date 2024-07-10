@@ -46,7 +46,7 @@ const Container = () => {
                         }
                         {selectToggle && <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 text-[#636363] transition ease-in-out delay-50 hover:bg-red-100 duration-300' onClick={toggleSelectionMode}>ยกเลิก</button>}
                         {selectToggle ? 
-                            <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 flex text-[#636363] transition ease-in-out delay-50 hover:bg-red-100 duration-300' onClick={removeSelectedCards}><IoTrash className='text-[15px] mr-[5px]'/> {selectedCards.length} รายการ</button> : 
+                            <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 flex text-[#636363] transition ease-in-out delay-50 hover:bg-red-100 duration-300' onClick={removeSelectedCards}><IoTrash className='text-[15px] mr-[5px]'/> {selectedCards.length == 0 ? '' : selectedCards.length} <span className="hidden sm:inline ml-1">รายการ</span> </button> : 
                             <button className='text-[12px] border border-[#E5E5E5] px-4 py-2 rounded-[20px] ml-3 text-[#636363] transition ease-in-out delay-50 hover:bg-orange-100 duration-300' onClick={toggleSelectionMode}>เเก้ไข</button>}
                     </div>
                 </div>

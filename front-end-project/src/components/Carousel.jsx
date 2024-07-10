@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import '../styles/ExtraStyle.css'; 
 
 const Carousel = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [sliderRef, setSliderRef] = useState(null);
+
   const slides = [
     'https://placehold.co/700x373',
     'https://placehold.co/700x373',
@@ -20,11 +23,12 @@ const Carousel = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000,
     variableWidth: true,
     adaptiveHeight: true,
     centerMode: true,
     centerPadding: '0px',
+    lazyLoad: 'ondemand',
     appendDots: dots => (
       <div style={{ position: 'absolute', bottom: '10px', width: '100%' }}>
         <ul style={{ margin: '0px' }}> {dots} </ul>
@@ -50,6 +54,7 @@ const Carousel = () => {
           infinite: true,
           dots: true,
           variableWidth: false,
+          adaptiveHeight: true
         }
       },
       {
@@ -60,6 +65,7 @@ const Carousel = () => {
           infinite: true,
           dots: true,
           variableWidth: false,
+          adaptiveHeight: true
         }
       },
       {
@@ -70,21 +76,36 @@ const Carousel = () => {
           infinite: true,
           dots: true,
           variableWidth: false,
+          adaptiveHeight: true
         }
       }
     ]
   };
 
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+    if (sliderRef) {
+      sliderRef.slickGoTo(0);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [sliderRef]);
+
   return (
-    <div className="slider-container relative w-full mx-auto overflow-x-hidden h-[250px] sm:h-[350px] md:h-[425px] lg:h-[425px] overflow-y-hidden">
-      <Slider {...settings}> 
+    <div className="slider-container relative w-full mx-auto overflow-x-hidden overflow-y-hidden h-[250px] sm:h-[300px] md:h-[300px] lg:h-[425px]">
+      <Slider ref={slider => setSliderRef(slider)} {...settings}> 
         {slides.map((slide, index) => (
           <div key={index} className="lg:px-[3px]">
             <img src={slide} className="w-full hover:cursor-pointer" style={{ width: '100%', height: 'auto' }} />
           </div>
         ))}
       </Slider>
-   </div>
+    </div>
   );
 };
 
