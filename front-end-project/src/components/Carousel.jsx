@@ -2,6 +2,7 @@ import React from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import '../styles/ExtraStyle.css'; 
 
 const Carousel = () => {
   const slides = [
@@ -14,7 +15,7 @@ const Carousel = () => {
   ];
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -24,23 +25,26 @@ const Carousel = () => {
     adaptiveHeight: true,
     centerMode: true,
     centerPadding: '0px',
+    appendDots: dots => (
+      <div style={{ position: 'absolute', bottom: '10px', width: '100%' }}>
+        <ul style={{ margin: '0px' }}> {dots} </ul>
+      </div>
+    ),
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          dots: false,
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
           dots: true,
           variableWidth: false,
-          adaptiveHeight : true
+          adaptiveHeight: true
         }
       },
       {
         breakpoint: 768,
         settings: {
-          dots: false,
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
@@ -51,7 +55,6 @@ const Carousel = () => {
       {
         breakpoint: 600,
         settings: {
-          dots: false,
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
@@ -62,7 +65,6 @@ const Carousel = () => {
       {
         breakpoint: 400,
         settings: {
-          dots : true,
           slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
@@ -74,10 +76,10 @@ const Carousel = () => {
   };
 
   return (
-    <div className="slider-container relative w-full mx-auto overflow-x-hidden h-[250px] sm:h-[280px] md:h-[400px] lg:h-[400px] overflow-y-hidden">
+    <div className="slider-container relative w-full mx-auto overflow-x-hidden h-[250px] sm:h-[350px] md:h-[425px] lg:h-[425px] overflow-y-hidden">
       <Slider {...settings}> 
         {slides.map((slide, index) => (
-          <div key={index} className="px-2">
+          <div key={index} className="lg:px-[3px]">
             <img src={slide} className="w-full hover:cursor-pointer" style={{ width: '100%', height: 'auto' }} />
           </div>
         ))}

@@ -1,5 +1,24 @@
-.truncate {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
+.slick-dots {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .slick-dots li {
+    margin: 0 -2px;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .slick-dots li button:before {
+    font-size: 8px;
+    color: white;
+    opacity: 1;
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #F37A01;
+  }
+  

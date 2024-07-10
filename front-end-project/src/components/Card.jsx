@@ -7,13 +7,17 @@ import { IoList } from "react-icons/io5";
 const Card = ({ number, isSelected, onSelect, isToggle }) => {
 
   const [modalToggle, setModalToggle] = useState(false);
-
+  
   const openHandler = () => {
-    setModalToggle(true);
+    if (!isToggle) {
+      setModalToggle(true);
+    }
   };
 
   const closeHandler = () => {
-    setModalToggle(false);
+    if (!isToggle) {
+      setModalToggle(false);
+    }
   };
 
   return (
