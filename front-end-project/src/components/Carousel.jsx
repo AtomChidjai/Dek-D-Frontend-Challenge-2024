@@ -97,7 +97,7 @@ const Carousel = () => {
   }, [sliderRef]);
 
   return (
-    <div className="slider-container relative w-full mx-auto overflow-x-hidden overflow-y-hidden h-[250px] sm:h-[300px] md:h-[300px] lg:h-[425px]">
+    <div className="slider-container relative w-full mx-auto overflow-x-hidden overflow-y-hidden">
       <Slider ref={slider => setSliderRef(slider)} {...settings}> 
         {slides.map((slide, index) => (
           <div key={index} className="lg:px-[3px]">

@@ -12,7 +12,7 @@ const Modal = ({ modalToggle, closeHandler, number, isToggle }) => {
         <div>
           <div className='fixed inset-0 bg-black opacity-50 z-40'></div>
           <IoMdClose className='z-50 fixed text-[30px] sm:text-[50px] hover:cursor-pointer text-white right-[10px] sm:right-[20px] top-[10px] sm:top-[20px]' onClick={closeHandler} />
-          <div className='w-[90%] sm:w-[800px] h-[90%] sm:h-[600px] bg-white fixed left-[50%] top-[50%] z-50 opacity-90 transform -translate-x-1/2 -translate-y-1/2 rounded-2xl px-4 py-4 sm:px-2 '>
+          <div className='w-[90%] sm:w-[800px] sm:h-[600px] bg-white fixed left-[50%] top-[50%] z-50 opacity-90 transform -translate-x-1/2 -translate-y-1/2 rounded-2xl px-4 py-4 sm:px-2 '>
             <div className='flex flex-col sm:flex-row w-full h-full'>
               <img src="https://placehold.co/400x600" className='rounded-lg w-full sm:w-auto h-[300px] sm:h-auto'/>
               <div className='flex flex-col justify-between ml-0 sm:ml-[10px] w-full mt-2 sm:mt-0'>
