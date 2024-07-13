@@ -105,18 +105,19 @@ const Container = () => {
                     </div>
                 </div>
                 <div className='w-full max-w-[1100px] flex flex-wrap'>
-                    {cards.map((card, index) => (
+                    {cards.slice().reverse().map((card, index) => (
                         <div key={index} className='w-full sm:w-1/2 lg:w-1/3 p-2 flex justify-center'>
                             <Card
                                 number={card.number}
-                                onSelect={() => toggleSelectCard(index)}
+                                onSelect={() => toggleSelectCard(cards.length - 1 - index)}
                                 isToggle={selectToggle}
-                                isSelected={selectedCards.includes(index)}
+                                isSelected={selectedCards.includes(cards.length - 1 - index)}
                                 creationTime={card.creationTime}
-                                authorName={data.length > 0 && data[index + 1] ? data[index + 1].name : ''}
+                                authorName={data.length > 0 && data[card.number] ? data[card.number].name : ''}
                             />
                         </div>
                     ))}
+
                 </div>
             </div>
             <ToastContainer />
