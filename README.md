@@ -50,10 +50,10 @@
     ```
 
 ## Folder Structure
-- file ต่าง ๆ ด้านล่างจะเป็น files เเละ components ที่สําคัญในโปรเจคนี้ที่ได้สร้างขึ้นมานะครับ
-front-end-project/src/components/Card.jsx       (กล่องรายการนิยาย)
-front-end-project/src/components/Carousel.jsx   (slideshow เเสดง banner นิยายใหม่)
-front-end-project/src/components/Container.jsx  (กล่อง เก็บ/เเสดง รายการนิยาย)
-front-end-project/src/components/Header.jsx     (หัวข้อตัวหนา)
-front-end-project/src/components/Modal.jsx      (หน้าต่าง pop-up เเสดงข้อมูลรายการนิยาย)
-front-end-project/src/styles/ExtraStyle.css     (ไฟล์ css สําหรับปรับเเต่งเพิ่มเติม)
+### file ต่าง ๆ ด้านล่างจะเป็น files เเละ components ที่สําคัญในโปรเจคนี้ที่ได้สร้างขึ้นมานะครับ
+- front-end-project/src/components/Card.jsx       (กล่องรายการนิยาย)
+- front-end-project/src/components/Carousel.jsx   (slideshow เเสดง banner นิยายใหม่)
+- front-end-project/src/components/Container.jsx  (กล่อง เก็บ/เเสดง รายการนิยาย)
+- front-end-project/src/components/Header.jsx     (หัวข้อตัวหนา)
+- front-end-project/src/components/Modal.jsx      (หน้าต่าง pop-up เเสดงข้อมูลรายการนิยาย)
+- front-end-project/src/styles/ExtraStyle.css     (ไฟล์ css สําหรับปรับเเต่งเพิ่มเติม)
