@@ -17,7 +17,7 @@
 ## Extras
 - มีการสร้างหน้าต่าง pop-up (modal) ขึ้นมาเมื่อมีการ interact กับรายการนิยาย
 - มีการเพิ่ม effect hover ให้กับ text ต่าง ๆ ในรายการนิยาย
-- มีการสร้าง pop-up เเสดงผลเมื่อมีการ สร้าง/ลน รายการ
+- มีการสร้าง pop-up เเสดงผลเมื่อมีการ สร้าง/ลบ รายการ
 
 ## Demo
 - มีการ deploy demo ไว้บน vercel : https://dek-d-frontend-challenge-2024.vercel.app/
