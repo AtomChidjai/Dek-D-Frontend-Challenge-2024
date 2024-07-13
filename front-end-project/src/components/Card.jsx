@@ -1,11 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from './Modal';
-import { useState } from 'react';
 import { IoMdBookmark } from "react-icons/io";
 import { IoList } from "react-icons/io5";
 
-const Card = ({ number, isSelected, onSelect, isToggle }) => {
-
+const Card = ({ number, isSelected, onSelect, isToggle, creationTime, authorName }) => {
   const [modalToggle, setModalToggle] = useState(false);
   
   const openHandler = () => {
@@ -22,17 +20,17 @@ const Card = ({ number, isSelected, onSelect, isToggle }) => {
 
   return (
     <>
-      <Modal modalToggle={modalToggle} closeHandler={closeHandler} number={number} isToggle={isToggle}/>
+      <Modal modalToggle={modalToggle} closeHandler={closeHandler} number={number} isToggle={isToggle} creationTime={creationTime} authorName={authorName}/>
       <div className='w-[350px] h-auto flex flex-row rounded-lg mx-2 my-3 relative hover:cursor-pointer' onClick={openHandler}>
         <img src="https://placehold.co/100x150" className='rounded-lg' />
         <div className='flex flex-col justify-between ml-[5px]'>
           <div>
             <p className={`font-semibold text-[18px] hover:cursor-pointer ${!isToggle && 'transition ease-in-out delay-100 hover:text-[#F37A01] duration-300'}`}>เป็นอนุฯสุขใจยิ่ง ชื่อยาวไปๆ <br /> { isToggle ? <>&lt;我是姨娘&gt;...</> : <>&lt;&nbsp;&nbsp;&nbsp;&nbsp;&gt;...</>} </p>
-            <p className='text-[12px] mt-[5px]'>G.lina</p>
+            <p className='text-[12px] mt-[5px]'>{authorName}</p>
           </div>
           <div className='text-[14px]'>
-            <p className='text-[#A8A8A8] flex'><IoList className='text-[20px] mr-[5px]'/> <span className='w-[200px] truncate'>ตอนที่ {number}: เป็นอนุฯสุขใจยิ่ง ชื่อยาวไปๆ</span></p>
-            <p className='text-[#A8A8A8] flex'><IoMdBookmark className='text-[20px] mr-[5px]' /> <span className='w-[200px] truncate'>คั่นล่าสุด 9 ก.ค. 67 / 22.56 น.</span></p>
+            <p className='text-[#A8A8A8] flex'><IoList className='text-[20px] mr-[5px]'/> <span className='w-[200px] truncate'>ตอนที่ {number} : เป็นอนุฯสุขใจยิ่ง ชื่อยาวไปๆ</span></p>
+            <p className='text-[#A8A8A8] flex'><IoMdBookmark className='text-[20px] mr-[5px]' /> <span className='w-[200px] truncate'>คั่นล่าสุด {creationTime}</span></p>
           </div>
         </div>
         {isToggle && (
