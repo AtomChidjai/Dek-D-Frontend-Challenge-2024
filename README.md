@@ -34,7 +34,7 @@
 ### Installation
 1. Clone the repository
     ```sh
-    https://github.com/AtomChidjai/Dek-D-Frontend-Challenge-2024.git
+    git clone https://github.com/AtomChidjai/Dek-D-Frontend-Challenge-2024.git
     ```
 2. Navigate to the project directory
     ```sh
@@ -48,6 +48,7 @@
     ```sh
     npm run dev
     ```
+- PS. ถ้า clone git ไปต้องคุณต้องหา api จาก mockapi มาใช้เอง เพราะผมเก็บไว้ใน .env ครับ
 
 ## Folder Structure
 ### file ต่าง ๆ ด้านล่างจะเป็น files เเละ components ที่สําคัญในโปรเจคนี้ที่ได้สร้างขึ้นมานะครับ
